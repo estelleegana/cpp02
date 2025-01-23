@@ -18,7 +18,7 @@ private:
 public:
     Fixed();//constructeur par defaut
     Fixed(const Fixed &autre);//constructeur de recopie
-    Fixed &operator=(const Fixed & autre) //surcharge de loperateur daffectation
+    Fixed &operator=(const Fixed & autre);//surcharge de loperateur daffectation
     ~Fixed();//destructeur (jamais de parametre, return rien)
 
     int getRawBits( void ) const;
