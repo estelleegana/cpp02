@@ -22,7 +22,18 @@ Fixed::Fixed( const float nb )
 Fixed::Fixed ( const Fixed &autre )
 {
     std::cout << "Copy constructor called" << std::endl;
+    *this = autre;
 }
 
 //operateur d'affectation
-Fixed::F
+// Fixed &Fixed::operator=( const Fixed &autre )
+// {
+//     std::cout << "Copy assignment operator called" << std::endl;
+//     return (*this);
+// }
+
+//destructeur
+Fixed::~Fixed()
+{
+    std::cout << "Destructor called" << std::endl;
+}
