@@ -6,7 +6,7 @@
 class Fixed
 {
     private:
-        int _nb;
+        float _nb;
         static const int _bits;//initialise a 8
 
     public:
@@ -18,7 +18,7 @@ class Fixed
         Fixed &operator=( const Fixed &autre );//surcharge de l'operateur d'affectation
         ~Fixed();
 
-    // float toFloat( void ) const;
+    float toFloat( void ) const;
     int toInt( void ) const;
 };
 

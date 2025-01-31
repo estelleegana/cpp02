@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-// Fixed::_bits = 8;
+const int Fixed::_bits = 8;
 
 //constructeur par default
 Fixed::Fixed()
@@ -15,7 +15,7 @@ Fixed::Fixed( const int nb ) : _nb(nb)
 }
 
 //constructeur de float
-Fixed::Fixed( const float nb ) 
+Fixed::Fixed( const float nb ) : _nb(nb)
 {
     std::cout << "Float constructor called" << std::endl;
 }
@@ -43,17 +43,17 @@ Fixed::~Fixed()
 
 int Fixed::toInt( void ) const
 {
-    return (this->_nb);
+    return (int)(this->_nb);
 }
 
-int Fixed::toFloat( void ) const
+float Fixed::toFloat( void ) const
 {
-    
+    return (this->_nb);
 }
 
 //surcharge doperateur global
 std::ostream &operator<<(std::ostream &o, Fixed const &i)
 {
-    o << i.toInt();
-    return (o);
+	o << i.toFloat();
+    return o;
 }
