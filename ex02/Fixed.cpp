@@ -21,6 +21,19 @@ Fixed::~Fixed()
 
 
 
+//surchar d'operateurs de comparaisons
+bool Fixed::operator>( const Fixed &autre )
+{
+    if (this->_nb > autre._nb)
+        return (this->_nb);
+    else
+        return (autre._nb);
+}
+
+
+
+
+
 
 //surcharge d'operateurs arithmetiques
 Fixed &Fixed::operator+( const Fixed &autre )

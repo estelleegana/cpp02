@@ -14,7 +14,7 @@ class Fixed
         Fixed(float n);
         ~Fixed();//Destructeur par defaut
         //6 surcharges d'operateurs de comparaison
-        // Fixed &operator>(const Fixed &autre);
+        bool operator>(const Fixed &autre);
         // Fixed &operator<(const Fixed &autre);
         // Fixed &operator>=(const Fixed &autre);
         // Fixed &operator<=(const Fixed &autre);

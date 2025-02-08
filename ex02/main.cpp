@@ -5,7 +5,12 @@ int main( void )
     Fixed a;
     Fixed c;
     Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-    
+
+    std::cout << "\033[1msurcharge d'operateurs de comparaison\033[0m" << std::endl;
+    a.setter(10);
+    c.setter(20);
+    std::cout << "a > b : " << (a > b) << std::endl;
+
     std::cout << "\033[1msurcharge d'operateurs arithmetiques\033[0m" << std::endl;
     a.setter(60);
     c.setter(2);
