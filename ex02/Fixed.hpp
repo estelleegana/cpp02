@@ -7,6 +7,7 @@ class Fixed
 {
     private:
         float _nb;
+        static const int _bits;
 
     public:
         Fixed();//constructeur par defaut
@@ -33,7 +34,7 @@ class Fixed
         Fixed operator--(int);
 
         //fonctions minimum / maximum
-        float min(float &nb1, float &nb2);
+        static &float min(Fixed a, Fixed b);
         // static &float min2(const float &nb1, const float &nb2);
         // static &float max(float &nb1, float &nb2);
         // static &float max2(const float &nb1, const float &nb2);
@@ -44,5 +45,12 @@ class Fixed
 
 //surcharge d'operateur global
 std::ostream &operator<<(std::ostream &o, Fixed const &i);
+
+// conversion en binaire
+//"z << a" = z x 2^a
+
+//"19 >> 2" = 19 en binaire devient 10011
+//2 decalage vers la droite donne 100
+//100 = 4 en binaire (2^2 + 0.2^1 + 0.2^0)
 
 #endif

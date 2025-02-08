@@ -32,10 +32,10 @@ int main( void )
     std::cout << "a : " << a << std::endl;
     std::cout << "--a : " << --a << std::endl;
     std::cout << "a : " << a << std::endl << std::endl;
-
+    
     std::cout << "\033[1mfonctions comparaisons max/min\033[0m" << std::endl;
     std::cout << "b : " << b << std::endl;
-    // std::cout << Fixed::min( a, b ) << std::endl;
+    std::cout << Fixed::min( a, b ) << std::endl;
     
     return 0;
 }

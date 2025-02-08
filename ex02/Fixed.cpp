@@ -1,5 +1,7 @@
 #include "Fixed.hpp"
 
+const int Fixed::_bits = 8;
+
 Fixed::Fixed() : _nb(0)
 {
     // std::cout << "Default constructor called" << std::endl;
@@ -86,11 +88,11 @@ Fixed Fixed::operator--(int)
 
 
 //fonctions comparaisons max/min
-float Fixed::min(float &nb1, float &nb2)
+float Fixed::min(Fixed a, Fixed b)
 {
-    if (nb1 < nb2)
-        return (nb1);
-    return (nb2);
+    if (a.getter() < b.getter())
+        return (a.getter());
+    return (b.getter());
 }
 
 
@@ -107,7 +109,7 @@ void Fixed::setter(float nb)
 
 float Fixed::getter() const
 {
-    return this->_nb;
+    return (this->_nb / (1 << ));
 }
 
 
