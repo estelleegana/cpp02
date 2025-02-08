@@ -18,7 +18,7 @@ int main( void )
     a.setter(60);
     c.setter(-2);
     std::cout << "a*c : " << a*c << std::endl;
-    a.setter(60);
+    a.setter(10);
     c.setter(0);
     std::cout << "a/c : " << a/c << std::endl << std::endl;
 
@@ -35,7 +35,11 @@ int main( void )
     
     std::cout << "\033[1mfonctions comparaisons max/min\033[0m" << std::endl;
     std::cout << "b : " << b << std::endl;
+    std::cout << "a : " << a << std::endl;
     std::cout << Fixed::min( a, b ) << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << Fixed::min2( a, b ) << std::endl;
+    std::cout << Fixed::max2( a, b ) << std::endl;
     
     return 0;
 }

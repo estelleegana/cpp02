@@ -34,10 +34,11 @@ class Fixed
         Fixed operator--(int);
 
         //fonctions minimum / maximum
-        static &float min(Fixed a, Fixed b);
-        // static &float min2(const float &nb1, const float &nb2);
-        // static &float max(float &nb1, float &nb2);
-        // static &float max2(const float &nb1, const float &nb2);
+        static float min(Fixed a, Fixed b);
+        static float min2(const Fixed a, const Fixed b);
+        static float max(Fixed a, Fixed b);
+        static float max2(const Fixed a, const Fixed b);
+
 
         void setter(float nb);
         float getter(void) const;

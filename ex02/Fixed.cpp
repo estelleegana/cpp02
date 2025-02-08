@@ -95,7 +95,26 @@ float Fixed::min(Fixed a, Fixed b)
     return (b.getter());
 }
 
+float Fixed::max(Fixed a, Fixed b)
+{
+    if (a.getter() < b.getter())
+        return (b.getter());
+    return (a.getter());
+}
 
+float Fixed::min2(const Fixed a, const Fixed b)
+{
+    if (a.getter() < b.getter())
+        return (a.getter());
+    return (b.getter());
+}
+
+float Fixed::max2(const Fixed a, const Fixed b)
+{
+    if (a.getter() < b.getter())
+        return (b.getter());
+    return (a.getter());
+}
 
 
 
