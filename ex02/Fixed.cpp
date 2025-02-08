@@ -109,7 +109,7 @@ void Fixed::setter(float nb)
 
 float Fixed::getter() const
 {
-    return (this->_nb / (1 << ));
+    return (this->_nb);
 }
 
 
