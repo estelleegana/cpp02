@@ -14,12 +14,12 @@ class Fixed
         Fixed(float n);
         ~Fixed();//Destructeur par defaut
         //6 surcharges d'operateurs de comparaison
-        bool operator>(const Fixed &autre);
-        // Fixed &operator<(const Fixed &autre);
-        // Fixed &operator>=(const Fixed &autre);
-        // Fixed &operator<=(const Fixed &autre);
-        // Fixed &operator==(const Fixed &autre);
-        // Fixed &operator!=(const Fixed &autre);
+        bool operator>(const Fixed &autre) const;
+        bool operator<(const Fixed &autre) const;
+        bool operator>=(const Fixed &autre) const;
+        bool operator<=(const Fixed &autre) const;
+        bool operator==(const Fixed &autre) const;
+        bool operator!=(const Fixed &autre) const;
 
         // //4 surcharges d'operateurs arithmetiques
         Fixed &operator+(const Fixed &autre);

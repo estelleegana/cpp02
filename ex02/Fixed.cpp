@@ -22,13 +22,57 @@ Fixed::~Fixed()
 
 
 //surchar d'operateurs de comparaisons
-bool Fixed::operator>( const Fixed &autre )
+bool Fixed::operator>( const Fixed &autre ) const
 {
-    if (this->_nb > autre._nb)
-        return (this->_nb);
+    if (_nb > autre._nb)
+        return (true);
     else
-        return (autre._nb);
+        return (false);
 }
+
+bool Fixed::operator<( const Fixed &autre ) const
+{
+    if (_nb < autre._nb)
+        return (true);
+    else
+        return (false);
+}
+
+bool Fixed::operator>=( const Fixed &autre ) const
+{
+    if (_nb >= autre._nb)
+        return (true);
+    else
+        return (false);
+}
+
+bool Fixed::operator<=( const Fixed &autre ) const
+{
+    if (_nb <= autre._nb)
+        return (true);
+    else
+        return (false);
+}
+
+bool Fixed::operator==( const Fixed &autre ) const
+{
+    if (_nb == autre._nb)
+        return (true);
+    else
+        return (false);
+}
+
+bool Fixed::operator!=( const Fixed &autre ) const
+{
+    if (_nb != autre._nb)
+        return (true);
+    else
+        return (false);
+}
+
+
+
+
 
 
 
