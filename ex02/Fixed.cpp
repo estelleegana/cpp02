@@ -12,6 +12,13 @@ Fixed::Fixed(float n) : _nb(n)
     // std::cout << "Default constructor called" << std::endl;
 }
 
+//constructeur de recopie
+Fixed::Fixed ( const Fixed &autre )
+{
+    // std::cout << "Copy constructor called" << std::endl;
+    *this = autre;
+}
+
 Fixed::~Fixed()
 {
     // std::cout << "Destructor called" << std::endl;

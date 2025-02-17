@@ -12,6 +12,7 @@ class Fixed
     public:
         Fixed();//constructeur par defaut
         Fixed(float n);
+        Fixed( const Fixed &autre );//constructeur de recopie
         ~Fixed();//Destructeur par defaut
         //6 surcharges d'operateurs de comparaison
         bool operator>(const Fixed &autre) const;
