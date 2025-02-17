@@ -8,14 +8,14 @@ Fixed::Fixed() {
 //constructeur de recopie
 Fixed::Fixed(const Fixed &autre) {
     std::cout << "Copy constructor called" << std::endl;
-    // autre = *this;
     *this = autre;
 }
 
 //surcharge de l'operateur d'affectation
-Fixed &Fixed::operator=(const Fixed & autre)
+Fixed &Fixed::operator=(const Fixed &autre)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
+    // if (this != &autre)
     return (*this);
 }
 

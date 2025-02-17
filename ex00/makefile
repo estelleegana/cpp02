@@ -1,5 +1,5 @@
 #nom du programme
-NAME = canon
+NAME = ex00
 
 #compilateur
 CC = c++
