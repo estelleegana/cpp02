@@ -1,28 +1,30 @@
 #include "Fixed.hpp"
 
-//constructeur par defaut
-Fixed::Fixed() {
+Fixed::Fixed() : _nb(0)
+{
     std::cout << "Default constructor called" << std::endl;
 }
 
-//constructeur de recopie
-Fixed::Fixed(const Fixed &autre) {
+Fixed::Fixed(const Fixed &autre)
+{
     std::cout << "Copy constructor called" << std::endl;
     *this = autre;
 }
 
-//surcharge de l'operateur d'affectation
 Fixed &Fixed::operator=(const Fixed &autre)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-    // if (this != &autre)
+    _nb = autre._nb;
     return (*this);
 }
 
-//destructeur
 Fixed::~Fixed() {
     std::cout << "Destructor called" << std::endl;
 }
+
+
+
+
 
 int Fixed::getRawBits() const
 {
