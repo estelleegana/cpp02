@@ -1,7 +1,14 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-# include <iostream>
+#include <iostream>
+
+#define bRED "\033[1;31m"
+#define bGREEN "\033[1;32m"
+#define bBLUE "\033[1;34m"
+#define bPURPLE "\033[1;35m"
+#define bold "\033[1m"
+#define RESET "\033[0m"
 
 class Fixed {
 private:

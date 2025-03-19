@@ -1,45 +1,40 @@
 #include "Fixed.hpp"
 
-const int Fixed::_bits = 8;
-
-//constructeur par default
 Fixed::Fixed()
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << bGREEN << "Default constructor called" << RESET << std::endl;
 }
 
-//constructeur de int
 Fixed::Fixed( const int nb ) : _nb(nb)
 {
-    std::cout << "Int constructor called" << std::endl;
+    std::cout << bGREEN << "Int constructor called" << RESET << std::endl;
 }
 
-//constructeur de float
 Fixed::Fixed( const float nb ) : _nb(nb)
 {
-    std::cout << "Float constructor called" << std::endl;
+    std::cout << bGREEN << "Float constructor called" << RESET << std::endl;
 }
 
-//constructeur de recopie (duplique une classe)
 Fixed::Fixed ( const Fixed &autre )
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << bGREEN << "Copy constructor called" << RESET << std::endl;
     *this = autre;
 }
 
-//operateur d'affectation (affecte a une classe initialisee a null des valeurs)
 Fixed &Fixed::operator=( const Fixed &autre )
 {
-    std::cout << "Copy assignment operator called" << std::endl;
-    this->_nb = autre._nb;
+    std::cout << bPURPLE << "Copy assignment operator called" << RESET << std::endl;
+    _nb = autre._nb;
     return (*this);
 }
 
-//destructeur
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << bRED << "Destructor called" << RESET << std::endl;
 }
+
+
+
 
 int Fixed::toInt( void ) const
 {
