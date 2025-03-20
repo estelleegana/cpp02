@@ -121,34 +121,29 @@ bool Fixed::operator!=( const Fixed &autre ) const
 
 
 //surcharge d'operateurs arithmetiques
-Fixed &Fixed::operator+( const Fixed &autre )
+Fixed Fixed::operator+( const Fixed &autre )
 {
-    this->_nb = this->_nb + autre._nb;
-    return (*this);
+    return (this->toFloat() + autre.toFloat());
 }
 
-Fixed &Fixed::operator-( const Fixed &autre )
+Fixed Fixed::operator-( const Fixed &autre )
 {
-    this->_nb = this->_nb - autre._nb;
-    return (*this);
+    return (this->toFloat() - autre.toFloat());
 }
 
-Fixed &Fixed::operator*( const Fixed &autre )
+Fixed Fixed::operator*( const Fixed &autre )
 {
-    this->_nb = this->_nb * autre._nb;
-    return (*this);
+    return (this->toFloat() * autre.toFloat());
 }
 
-Fixed &Fixed::operator/( const Fixed &autre )
+Fixed Fixed::operator/( const Fixed &autre )
 {
-    if (autre._nb == 0)
+    if (autre.toFloat() == 0)
     {
         std::cout << "erreur : division par 0 non gere. ";
         // exit(1);
     }
-    else
-        this->_nb = this->_nb / autre._nb;
-    return (*this);
+    return (this->toFloat() / autre.toFloat());
 }
 
 
@@ -169,7 +164,7 @@ Fixed Fixed::operator++(int)
     return (tmp);
 }
 
-Fixed &Fixed::operator--()
+Fixed & Fixed::operator--()
 {
     this->_nb--;
     return (*this);
@@ -185,34 +180,39 @@ Fixed Fixed::operator--(int)
 
 
 
-//fonctions comparaisons max/min
-Fixed& Fixed::min(Fixed& a, Fixed& b)
+// //fonctions comparaisons max/min
+float Fixed::max(Fixed& a, Fixed& b)
 {
-    if (a < b)
-        return (a);
-    return (b);
+    if (a.toFloat() < b.toFloat())
+        return (b.toFloat());
+    return (a.toFloat());
 }
 
-Fixed& Fixed::max(Fixed& a, Fixed& b)
+float Fixed::max(const Fixed& a, const Fixed& b)
 {
-    if (a < b)
-        return (b);
-    return (a);
+    if (a.toFloat() < b.toFloat())
+        return (b.toFloat());
+    return (a.toFloat());
 }
 
-const Fixed& Fixed::min2(const Fixed& a, const Fixed& b)
+float Fixed::min(Fixed& a, Fixed& b)
 {
-    if (a < b)
-        return (a);
-    return (b);
+    if (a.toFloat() > b.toFloat())
+        return (b.toFloat());
+    return (a.toFloat());
 }
 
-const Fixed& Fixed::max2(const Fixed& a, const Fixed& b)
+float Fixed::min(const Fixed& a, const Fixed& b)
 {
-    if (a < b)
-        return (b);
-    return (a);
+    if (a.toFloat() > b.toFloat())
+        return (b.toFloat());
+    return (a.toFloat());
 }
+
+
+
+
+
 
 
 

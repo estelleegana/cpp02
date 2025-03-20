@@ -16,7 +16,8 @@ class Fixed
     private:
         int _nb;
         static const int _bits = 8;
-
+    
+        
     public:
         Fixed();
         Fixed( const int nb );
@@ -37,23 +38,23 @@ class Fixed
         bool operator==(const Fixed &autre) const;
         bool operator!=(const Fixed &autre) const;
 
-        // //4 surcharges d'operateurs arithmetiques
-        Fixed &operator+(const Fixed &autre);
-        Fixed &operator-(const Fixed &autre);
-        Fixed &operator*(const Fixed &autre);
-        Fixed &operator/(const Fixed &autre);
+        //4 surcharges d'operateurs arithmetiques
+        Fixed operator+(const Fixed &autre);
+        Fixed operator-(const Fixed &autre);
+        Fixed operator*(const Fixed &autre);
+        Fixed operator/(const Fixed &autre);
 
         //4 surcharges increment / decrement (pre et post)
-        Fixed &operator++();
-        Fixed operator++(int);
-        Fixed &operator--();
-        Fixed operator--(int);
+        Fixed &operator++();//post
+        Fixed operator++(int);//pre
+        Fixed &operator--();//post
+        Fixed operator--(int);//pre
 
         //fonctions minimum / maximum
-        static Fixed& min(Fixed &a, Fixed &b);
-        static const Fixed& min2(const Fixed &a, const Fixed &b);
-        static Fixed& max(Fixed &a, Fixed &b);
-        static const Fixed& max2(const Fixed &a, const Fixed &b);
+        static float max(Fixed &a, Fixed &b);
+        static float max(const Fixed &a, const Fixed &b);
+        static float min(Fixed &a, Fixed &b);
+        static float min(const Fixed &a, const Fixed &b);
 };
 
 //surcharge d'operateur global
