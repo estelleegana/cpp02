@@ -1,28 +1,62 @@
 #include "Fixed.hpp"
 
-const int Fixed::_bits = 8;
-
 Fixed::Fixed() : _nb(0)
 {
-    // std::cout << "Default constructor called" << std::endl;
+    // std::cout << bGREEN << "Default constructor called " << RESET << _nb << std::endl;
 }
 
-Fixed::Fixed(float n) : _nb(n)
+Fixed::Fixed( const int nb )
 {
-    // std::cout << "Default constructor called" << std::endl;
+    _nb = nb << _bits;// *2^8
+    // std::cout << bGREEN << "Int constructor called " << RESET << _nb << std::endl;
 }
 
-//constructeur de recopie
-Fixed::Fixed ( const Fixed &autre )
+Fixed::Fixed( const float nb )
 {
-    // std::cout << "Copy constructor called" << std::endl;
-    *this = autre;
+    _nb = roundf(nb * (1 << _bits));// *2^8 arrondi
+    // std::cout << bGREEN << "Float constructor called " << RESET << _nb << std::endl;
+}
+
+Fixed::Fixed ( const Fixed &copy )
+{
+    // std::cout << bGREEN << "Copy constructor called " << RESET << _nb << std::endl;
+    *this = copy;
+}
+
+Fixed &Fixed::operator=( const Fixed &autre )
+{
+    // std::cout << bBLUE << "Copy assignment operator called" << RESET << std::endl;
+    _nb = autre._nb;
+    return (*this);
 }
 
 Fixed::~Fixed()
 {
-    // std::cout << "Destructor called" << std::endl;
+    // std::cout << bRED << "Destructor called " << RESET << _nb << std::endl;
 }
+
+float Fixed::toFloat( void ) const
+{
+    return (float)_nb / (float)(1 << _bits);// /2^8
+    // return _nb;
+}
+
+int Fixed::toInt( void ) const
+{
+    return _nb >> _bits;// /2^8
+}
+
+int Fixed::getRawBits() const
+{
+    // std::cout << bold << "getRawBits member function called" << RESET << std::endl;
+    return (_nb);
+}
+
+void Fixed::setRawBits( int const raw )
+{
+    _nb = raw;
+}
+
 
 
 
@@ -152,48 +186,35 @@ Fixed Fixed::operator--(int)
 
 
 //fonctions comparaisons max/min
-float Fixed::min(Fixed a, Fixed b)
+Fixed& Fixed::min(Fixed& a, Fixed& b)
 {
-    if (a.getter() < b.getter())
-        return (a.getter());
-    return (b.getter());
+    if (a < b)
+        return (a);
+    return (b);
 }
 
-float Fixed::max(Fixed a, Fixed b)
+Fixed& Fixed::max(Fixed& a, Fixed& b)
 {
-    if (a.getter() < b.getter())
-        return (b.getter());
-    return (a.getter());
+    if (a < b)
+        return (b);
+    return (a);
 }
 
-float Fixed::min2(const Fixed a, const Fixed b)
+const Fixed& Fixed::min2(const Fixed& a, const Fixed& b)
 {
-    if (a.getter() < b.getter())
-        return (a.getter());
-    return (b.getter());
+    if (a < b)
+        return (a);
+    return (b);
 }
 
-float Fixed::max2(const Fixed a, const Fixed b)
+const Fixed& Fixed::max2(const Fixed& a, const Fixed& b)
 {
-    if (a.getter() < b.getter())
-        return (b.getter());
-    return (a.getter());
+    if (a < b)
+        return (b);
+    return (a);
 }
 
 
-
-
-
-//getter et setter
-void Fixed::setter(float nb)
-{
-    this->_nb = nb;
-}
-
-float Fixed::getter() const
-{
-    return (this->_nb);
-}
 
 
 
@@ -202,6 +223,6 @@ float Fixed::getter() const
 //---------------- surcharge doperateur global
 std::ostream &operator<<(std::ostream &o, Fixed const &i)
 {
-	o << i.getter();
+	o << i.toFloat();
     return o;
 }
